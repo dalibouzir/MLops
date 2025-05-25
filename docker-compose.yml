@@ -1,13 +1,11 @@
-version: '3.8'
-
 services:
   web:
     build: .
     ports:
-      - "5002:5005"
+      - "5002:5000"
     volumes:
       - .:/app
-
+      
   mlflow:
     image: ghcr.io/mlflow/mlflow:v2.10.2
     ports:

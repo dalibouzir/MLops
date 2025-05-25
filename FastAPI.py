@@ -7,7 +7,7 @@ import requests
 import os
 import logging
 from model.predictor import PlayerPredictor
-
+import mlflow
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
