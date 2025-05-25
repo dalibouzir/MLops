@@ -1,4 +1,3 @@
-# model/predictor.py
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import OneHotEncoder
@@ -22,13 +21,13 @@ class PlayerPredictor:
             transformers=[
                 ('num', SimpleImputer(strategy='mean'), 
                  ['now_cost', 'form', 'minutes', 'goals_scored', 'assists', 'yellow_cards']),
-                ('cat', OneHotEncoder(), ['team_name', 'next_opponent'])
+                ('cat', OneHotEncoder(handle_unknown='ignore'), ['team_name', 'next_opponent'])
             ]
         )
-        
+
         self.model = Pipeline(steps=[
             ('preprocessor', preprocessor),
-            ('regressor', RandomForestRegressor(n_estimators=100))
+            ('regressor', RandomForestRegressor(n_estimators=100, random_state=42))
         ])
         
         self.model.fit(X, y)
@@ -52,4 +51,4 @@ class PlayerPredictor:
         
     def load_model(self, filepath):
         self.model = joblib.load(filepath)
-        return self.model 
+        return self.model
