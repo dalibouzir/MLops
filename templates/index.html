@@ -465,7 +465,8 @@ strong {
                         <td>{{ player.web_name }}</td>
                         <td>{{ player.team_name }}</td>
                         <td>{{ player.position }}</td>
-                        <td>£{{ player.now_cost / 10 }}M</td>
+                        <td>£{{ player.cost }}M</td>
+
                         <td>{{ player.total_points }}</td>
                         <td>{{ player.next_opponent }}</td>
                         <td><a href="/player/{{ player.id }}">See More</a></td>
@@ -476,8 +477,7 @@ strong {
         </div>
         
         <div class="pagination">
-            <a href="/?page={{ page - 1 }}" class="{% if page <= 1 %}disabled{% endif %}">Previous</a>
-            <a href="/?page={{ page + 1 }}" class="{% if page * per_page >= total %}disabled{% endif %}">Next</a>
+
         </div>
     </div>
 

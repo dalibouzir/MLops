@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1748175051894
+current_stage: None
+description: null
+last_updated_timestamp: 1748175051894
+name: fantasy_model
+run_id: ce37d76a9f3c4991a6a2fb94ac5dbad2
+run_link: null
+source: file:///Users/mohamedalibouzir/Desktop/FPL/Fantasy_MLOPS/mlruns/0/ce37d76a9f3c4991a6a2fb94ac5dbad2/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///Users/mohamedalibouzir/Desktop/FPL/Fantasy_MLOPS/mlruns/0/ce37d76a9f3c4991a6a2fb94ac5dbad2/artifacts/model
+user_id: null
+version: 1

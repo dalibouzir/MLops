@@ -1,3 +1,4 @@
+# model/predictor.py
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import OneHotEncoder
@@ -13,10 +14,8 @@ class PlayerPredictor:
     def train_model(self, players):
         """Train prediction model on player data"""
         df = pd.DataFrame(players)
-        
-        # Feature selection and preprocessing
         X = df[['now_cost', 'form', 'minutes', 'goals_scored', 'assists', 
-               'yellow_cards', 'team_name', 'next_opponent']]
+                'yellow_cards', 'team_name', 'next_opponent']]
         y = df['total_points']
         
         preprocessor = ColumnTransformer(
@@ -38,23 +37,19 @@ class PlayerPredictor:
     def predict_performance(self, players):
         """Predict performance for list of players"""
         if not self.model:
-            self.train_model(players)
-            
+            raise Exception("Model not trained or loaded!")
         df = pd.DataFrame(players)
-        X = df[['now_cost', 'total_points', 'form', 'minutes', 'goals_scored', 
-               'assists', 'yellow_cards', 'team_name', 'next_opponent']]
+        X = df[['now_cost', 'form', 'minutes', 'goals_scored', 
+                'assists', 'yellow_cards', 'team_name', 'next_opponent']]
         
-        predicted_points = self.model.predict(X) / 10
+        predicted_points = self.model.predict(X)
         for idx, player in enumerate(players):
-            player['predicted_points'] = predicted_points[idx]
-            
+            player['predicted_points'] = float(predicted_points[idx])
         return players
     
     def save_model(self, filepath):
-        """Save trained model to file"""
         joblib.dump(self.model, filepath)
         
     def load_model(self, filepath):
-        """Load model from file"""
         self.model = joblib.load(filepath)
         return self.model 

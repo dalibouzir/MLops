@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/mohamedalibouzir/Desktop/FPL/Fantasy_MLOPS/mlruns/0/ce37d76a9f3c4991a6a2fb94ac5dbad2/artifacts
+end_time: 1748175051896
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ce37d76a9f3c4991a6a2fb94ac5dbad2
+run_name: amazing-lynx-878
+run_uuid: ce37d76a9f3c4991a6a2fb94ac5dbad2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748175049640
+status: 3
+tags: []
+user_id: mohamedalibouzir

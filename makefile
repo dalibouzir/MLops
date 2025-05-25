@@ -1,43 +1,38 @@
-# Makefile for Fantasy Premier League Project
+.PHONY: install run test clean format lint security
 
-.PHONY: run install test clean
-
-# Variables
 VENV = venv
-PYTHON = $(VENV)\Scripts\python
-PIP = $(VENV)\Scripts\pip
+PYTHON = $(VENV)/bin/python
+PIP = $(VENV)/bin/pip
 
-.PHONY: install run clean
-
-# Set up virtual environment and install dependencies
+# Create venv and install dependencies
 install:
 	python3 -m venv $(VENV)
 	$(PIP) install --upgrade pip
 	$(PIP) install -r requirements.txt
 
-# Run the application
+# Run your main program (edit the filename if needed)
 run:
 	$(PYTHON) main.py
 
-# Run tests
+# Run tests (pytest should be in requirements.txt)
 test:
 	$(PYTHON) -m pytest tests/
 
-# Clean up temporary files and virtual environment
+# Remove __pycache__, .pyc files, and venv for a fresh setup
 clean:
 	rm -rf __pycache__
 	rm -rf $(VENV)
 	find . -type d -name "__pycache__" -exec rm -r {} +
 	find . -type f -name "*.pyc" -delete
 
-# Format code using black
+# Black code formatter (autopep8/black in requirements)
 format:
 	$(PYTHON) -m black .
 
-# Lint code using flake8
+# Lint with flake8 (should be in requirements)
 lint:
-	$(PYTHON) -m flake8 app/
+	$(PYTHON) -m flake8 .
 
-# Run security checks
+# Security check with bandit (add bandit to requirements)
 security:
-	$(PYTHON) -m bandit -r app/
+	$(PYTHON) -m bandit -r .
