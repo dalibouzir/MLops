@@ -5,7 +5,7 @@ services:
       - "5002:5000"
     volumes:
       - .:/app
-      
+
   mlflow:
     image: ghcr.io/mlflow/mlflow:v2.10.2
     ports:

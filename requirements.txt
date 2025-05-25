@@ -28,3 +28,4 @@ fastapi
 mlflow==2.13.0
 pytest
 httpx
+cmreslogging
